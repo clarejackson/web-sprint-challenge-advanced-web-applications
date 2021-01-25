@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { axiosWithAuth } from "../utils/axiosWithAuth"
+import { Button, Form, FormGroup, Input } from 'reactstrap'
 
 const Login = (props) => {
   const [credentials, setCredentials] = useState({
     username: '',
-    password: ','
+    password: '',
   });
 
   const handleChange = e => {
@@ -31,18 +32,24 @@ const Login = (props) => {
     <>
       <h1>Welcome to the Bubble App!</h1>
         <form onSubmit={login}>
+          <label>Username:               
           <input
             type="text"
             name="username"
             value={credentials.username}
             onChange={handleChange}
             />
+            </label>   
+          <br></br>
+          <label>Password:   
           <input 
             type="password"
             name="password"
             value={credentials.password}
             onChange={handleChange}
             />
+            </label>
+            <br></br>
             <button>Login</button>
         </form>
     </>

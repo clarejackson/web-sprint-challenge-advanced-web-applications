@@ -29,8 +29,14 @@ const mockColors = [
   }
 ]
 
-test("Fetches data and renders the bubbles", asyc () => {
-  // Finish this test
+test("Fetches data and renders the bubbles", async () => {
   mockGetColors.mockResolvedValueOnce(mockColors);
-  render(<)
+    const {rerender} = render(<BubblePage/>);
+    
+    await waitFor(() => {
+      rerender(<BubblePage/>); 
+    });
+    screen.debug();
+    const colorName = screen.getByText(/bubbles/i);
+    expect(colorName).toBeInTheDocument(); 
 });
